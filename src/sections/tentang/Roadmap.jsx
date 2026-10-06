@@ -30,7 +30,7 @@ function Roadmap() {
         >
           Roadmap Padi Nadi
         </h2>
-        <p className="pt-14 text-center text-lead text-dim">
+        <p data-reveal className="pt-14 text-center text-lead text-dim">
           Langkah terukur menuju ekosistem penggilingan padi nasional yang
           saling terhubung.
         </p>
@@ -58,7 +58,9 @@ function Roadmap() {
                 <span
                   aria-hidden
                   className={`absolute top-1/2 left-1/2 hidden h-px -translate-y-1/2 bg-line-dark lg:block ${
-                    i === milestones.length - 1 ? 'right-[74.88px]' : 'right-[-48px]'
+                    i === milestones.length - 1
+                      ? 'right-[74.88px]'
+                      : 'right-[-48px]'
                   }`}
                 />
                 <span className="relative grid size-64 place-items-center rounded-full bg-ink">

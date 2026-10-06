@@ -41,7 +41,7 @@ function SurveyResults() {
         >
           Hasil Survei Product Market Fit
         </h2>
-        <p className="pt-14 text-center text-lead text-muted">
+        <p data-reveal className="pt-14 text-center text-lead text-muted">
           Mitra pilot: DD, Gunung Emas, CS Putra, 3 Putra, dan 3 Permata.
         </p>
 

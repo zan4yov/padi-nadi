@@ -27,7 +27,10 @@ function ContactSection() {
           <br />
           Kebutuhan Anda
         </h2>
-        <p className="mx-auto max-w-[860px] pt-14 text-center text-lead text-muted">
+        <p
+          data-reveal
+          className="mx-auto max-w-[860px] pt-14 text-center text-lead text-muted"
+        >
           Punya pertanyaan, ide kolaborasi, atau ingin mencoba Padi Nadi?
           Hubungi kami melalui kanal pilihan Anda.
         </p>

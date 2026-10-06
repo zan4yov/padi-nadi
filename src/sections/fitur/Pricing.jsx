@@ -85,7 +85,7 @@ function Pricing() {
         >
           Harga Sederhana, Manfaat Maksimal
         </h2>
-        <p className="pt-14 text-center text-lead text-muted">
+        <p data-reveal className="pt-14 text-center text-lead text-muted">
           Mulai dengan uji coba gratis 1 bulan, lalu pilih paket sesuai tahap
           bisnis Anda.
         </p>

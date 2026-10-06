@@ -36,7 +36,7 @@ function Team() {
         >
           Bertemu Tim Padi Nadi
         </h2>
-        <p className="pt-14 text-center text-lead text-muted">
+        <p data-reveal className="pt-14 text-center text-lead text-muted">
           Lima orang lintas fungsi: eksekutif, teknologi, bisnis, pemasaran, dan
           keuangan.
         </p>
