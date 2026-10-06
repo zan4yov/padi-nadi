@@ -35,21 +35,38 @@ function Roadmap() {
           saling terhubung.
         </p>
 
-        <ol data-reveal className="relative grid gap-48 pt-60 lg:grid-cols-3">
-          <div
-            aria-hidden
-            className="absolute top-[185px] right-70 left-70 hidden h-px bg-line-dark lg:block"
-          />
-          {milestones.map((m) => (
-            <li key={m.year} className="relative text-center">
+        <ol data-reveal className="grid gap-60 pt-60 lg:grid-cols-3">
+          {milestones.map((m, i) => (
+            <li key={m.year} className="text-center">
               <span className="block text-year font-bold text-gold">
                 {m.year}
               </span>
-              <span className="mx-auto mt-20 grid size-64 place-items-center rounded-full bg-ink">
-                <span className="grid size-52 place-items-center rounded-full bg-gold text-eyebrow font-semibold text-ink">
-                  {m.step}
+              {/*
+                The rule lives inside the badge row rather than being offset
+                from the list, so the copy underneath can never push it down.
+                Each column draws its own half and overhangs the 48px gutter,
+                which makes one continuous line across the three steps.
+                Outer ends stop 74.88px inside the container, per Figma.
+              */}
+              <div className="relative mt-20 flex h-64 items-center justify-center">
+                <span
+                  aria-hidden
+                  className={`absolute top-1/2 right-1/2 hidden h-px -translate-y-1/2 bg-line-dark lg:block ${
+                    i === 0 ? 'left-[74.88px]' : 'left-[-48px]'
+                  }`}
+                />
+                <span
+                  aria-hidden
+                  className={`absolute top-1/2 left-1/2 hidden h-px -translate-y-1/2 bg-line-dark lg:block ${
+                    i === milestones.length - 1 ? 'right-[74.88px]' : 'right-[-48px]'
+                  }`}
+                />
+                <span className="relative grid size-64 place-items-center rounded-full bg-ink">
+                  <span className="grid size-52 place-items-center rounded-full bg-gold text-eyebrow font-semibold text-ink">
+                    {m.step}
+                  </span>
                 </span>
-              </span>
+              </div>
               <h3 className="pt-26 text-step-body font-semibold tracking-[-0.288px] text-ash">
                 {m.title}
               </h3>
