@@ -35,7 +35,7 @@ function FiturHarga() {
         highlight="Harga Terjangkau"
         body="Digitalisasi tidak harus mahal atau rumit. Pilih modul dan paket yang sesuai dengan tahap pertumbuhan bisnis Anda."
         cta="Lihat Harga"
-        to="/fitur-harga"
+        href="#harga"
       />
       <FeatureRows />
       <ValueStrip />

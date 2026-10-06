@@ -74,7 +74,10 @@ const plans = [
 // Figma node 76:3909 — 407.66x421.14 cards, the Combo plan inverted to #1A1A1A.
 function Pricing() {
   return (
-    <section className="bg-cream px-20 py-80 lg:py-130 xl:px-0">
+    <section
+      id="harga"
+      className="scroll-mt-100 bg-cream px-20 py-80 lg:py-130 xl:px-0"
+    >
       <div className="mx-auto w-full max-w-page">
         <h2
           data-reveal
