@@ -9,7 +9,12 @@ function PageHero({ image, lead, highlight, body, cta, to, href }) {
     <section className="px-20 pt-25 pb-80 xl:px-0">
       <div className="relative mx-auto flex min-h-440 w-full max-w-page flex-col justify-center overflow-hidden rounded-card bg-brand p-30 lg:p-60">
         <div aria-hidden className="pointer-events-none absolute inset-0">
-          <img src={image} alt="" className="size-full object-cover" />
+          <img
+            src={image}
+            fetchPriority="high"
+            alt=""
+            className="size-full object-cover"
+          />
           <div className="absolute inset-0 bg-linear-to-b from-brand-deep/35 to-brand-deep/85" />
         </div>
         <div data-reveal className="relative">

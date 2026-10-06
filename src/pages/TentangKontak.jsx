@@ -1,3 +1,4 @@
+import Seo from '../components/Seo'
 import PageHero from '../components/PageHero'
 import Mission from '../sections/tentang/Mission'
 import Roadmap from '../sections/tentang/Roadmap'
@@ -10,6 +11,11 @@ import heroImage from '../assets/home/padi-panen.jpg'
 function TentangKontak() {
   return (
     <>
+      <Seo
+        title="Tentang & Kontak — Padi Nadi"
+        description="Padi Nadi membangun Mini-ERP khusus penggilingan padi Indonesia. Kenali roadmap, tim, hasil survei product market fit, dan hubungi kami lewat WhatsApp."
+        path="/tentang-kontak"
+      />
       <PageHero
         image={heroImage}
         lead="Tentang"

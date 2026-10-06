@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://padi-nadi.vercel.app/sitemap.xml

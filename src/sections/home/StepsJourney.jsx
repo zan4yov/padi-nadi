@@ -63,6 +63,8 @@ function StepsJourney() {
           </ul>
           <img
             src={aktivitas}
+            loading="lazy"
+            decoding="async"
             alt="Aktivitas penggilingan padi"
             className="aspect-[420.13/384] w-full rounded-card object-cover"
           />

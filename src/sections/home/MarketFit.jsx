@@ -76,6 +76,8 @@ function MarketFit() {
 
           <img
             src={lahanPadi}
+            loading="lazy"
+            decoding="async"
             alt="Lahan padi mitra Padi Nadi"
             className="aspect-[623/575.59] size-full object-cover"
           />

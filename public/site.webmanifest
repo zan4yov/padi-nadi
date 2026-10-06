@@ -1,0 +1,14 @@
+{
+  "name": "Padi Nadi — Mini-ERP untuk Penggilingan Padi",
+  "short_name": "Padi Nadi",
+  "description": "Kelola penggilingan padi dalam satu aplikasi: pencatatan harian, stok gabah, laporan keuangan otomatis, dan analisis AI.",
+  "lang": "id",
+  "start_url": "/",
+  "display": "standalone",
+  "background_color": "#ffffff",
+  "theme_color": "#036b46",
+  "icons": [
+    { "src": "/favicon.png", "sizes": "256x256", "type": "image/png", "purpose": "any" },
+    { "src": "/apple-touch-icon.png", "sizes": "180x180", "type": "image/png" }
+  ]
+}

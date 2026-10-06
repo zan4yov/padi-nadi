@@ -37,6 +37,8 @@ function Faq() {
           </p>
           <img
             src={butirPadi}
+            loading="lazy"
+            decoding="async"
             alt="Butir padi"
             className="mt-45 aspect-[473.59/256] w-full rounded-card object-cover"
           />

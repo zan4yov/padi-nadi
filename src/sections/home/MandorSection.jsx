@@ -47,12 +47,16 @@ function MandorSection() {
         >
           <img
             src={mandorImage}
+            loading="lazy"
+            decoding="async"
             alt="Pemilik penggilingan memantau data"
             className="aspect-[288/416] w-full rounded-card object-cover"
           />
           <div className="pt-50">
             <img
               src={millImage}
+              loading="lazy"
+              decoding="async"
               alt="Lingkungan penggilingan padi"
               className="aspect-[288/416] w-full rounded-card object-cover"
             />

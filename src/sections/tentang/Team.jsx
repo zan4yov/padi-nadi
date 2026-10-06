@@ -52,6 +52,8 @@ function Team() {
             >
               <img
                 src={member.photo}
+                loading="lazy"
+                decoding="async"
                 alt={member.name}
                 className="aspect-[232/411] w-full rounded-[25px] object-cover"
               />

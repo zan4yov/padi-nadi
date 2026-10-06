@@ -10,7 +10,12 @@ function Hero() {
     <section className="flex flex-col items-center px-20 pt-25 pb-80 xl:px-0">
       <div className="relative flex min-h-700 w-full max-w-page flex-col justify-between gap-50 overflow-hidden rounded-card p-25 md:p-50 lg:h-800 lg:min-h-800">
         <div aria-hidden className="pointer-events-none absolute inset-0">
-          <img src={heroBg} alt="" className="size-full object-cover" />
+          <img
+            src={heroBg}
+            fetchPriority="high"
+            alt=""
+            className="size-full object-cover"
+          />
           <div className="absolute inset-0 bg-linear-to-b from-brand-deep/35 to-brand-deep/85" />
         </div>
 

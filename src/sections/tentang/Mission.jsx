@@ -11,6 +11,8 @@ function Mission() {
         >
           <img
             src={logoMark}
+            loading="lazy"
+            decoding="async"
             alt="Logo Padi Nadi"
             className="w-[314px] max-w-full"
           />

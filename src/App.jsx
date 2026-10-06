@@ -1,4 +1,4 @@
-import { BrowserRouter, Route, Routes } from 'react-router-dom'
+import { BrowserRouter, Navigate, Route, Routes } from 'react-router-dom'
 import Layout from './components/Layout'
 import Home from './pages/Home'
 import FiturHarga from './pages/FiturHarga'
@@ -13,6 +13,8 @@ function App() {
           <Route path="fitur-harga" element={<FiturHarga />} />
           <Route path="tentang-kontak" element={<TentangKontak />} />
         </Route>
+        {/* Unknown URLs rendered an empty page; send them home instead. */}
+        <Route path="*" element={<Navigate to="/" replace />} />
       </Routes>
     </BrowserRouter>
   )

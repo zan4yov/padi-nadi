@@ -5,14 +5,69 @@
     <link rel="icon" href="/favicon.ico" sizes="48x48" />
     <link rel="icon" type="image/png" href="/favicon.png" sizes="256x256" />
     <link rel="apple-touch-icon" href="/apple-touch-icon.png" />
+    <link rel="manifest" href="/site.webmanifest" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="theme-color" content="#036b46" />
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
       href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700&display=swap"
       rel="stylesheet"
     />
-    <title>Padi Nadi</title>
+
+    <!--
+      Static fallback metadata. React 19 hoists per-route <title>/<meta> from
+      src/components/Seo.jsx for real browsers, but link scrapers (WhatsApp,
+      Facebook) do not run JS, so these defaults are what they read.
+    -->
+    <title>Padi Nadi — Mini-ERP untuk Penggilingan Padi</title>
+    <meta
+      name="description"
+      content="Kelola penggilingan padi dalam satu aplikasi. Pencatatan harian, stok gabah, laporan keuangan otomatis, dan analisis AI untuk UMKM penggilingan padi Indonesia."
+    />
+    <meta property="og:type" content="website" />
+    <meta property="og:site_name" content="Padi Nadi" />
+    <meta property="og:locale" content="id_ID" />
+    <meta
+      property="og:title"
+      content="Padi Nadi — Mini-ERP untuk Penggilingan Padi"
+    />
+    <meta
+      property="og:description"
+      content="Kelola penggilingan padi dalam satu aplikasi. Pencatatan harian, stok gabah, laporan keuangan otomatis, dan analisis AI untuk UMKM penggilingan padi Indonesia."
+    />
+    <meta property="og:url" content="https://padi-nadi.vercel.app/" />
+    <meta
+      property="og:image"
+      content="https://padi-nadi.vercel.app/og-image.jpg"
+    />
+    <meta property="og:image:width" content="1200" />
+    <meta property="og:image:height" content="630" />
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta
+      name="twitter:image"
+      content="https://padi-nadi.vercel.app/og-image.jpg"
+    />
+
+    <script type="application/ld+json">
+      {
+        "@context": "https://schema.org",
+        "@type": "Organization",
+        "name": "Padi Nadi",
+        "url": "https://padi-nadi.vercel.app",
+        "logo": "https://padi-nadi.vercel.app/favicon.png",
+        "description": "Platform Mini-ERP khusus penggilingan padi: manajemen stok, laporan keuangan otomatis, analitik cerdas, dan komunitas untuk UMKM penggilingan padi Indonesia.",
+        "address": {
+          "@type": "PostalAddress",
+          "addressRegion": "Jawa Timur",
+          "addressCountry": "ID"
+        },
+        "areaServed": {
+          "@type": "Country",
+          "name": "Indonesia"
+        }
+      }
+    </script>
   </head>
   <body>
     <div id="root"></div>

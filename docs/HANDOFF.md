@@ -264,7 +264,60 @@ bawaan browser.
 
 ---
 
-## 7. Penyimpangan dari Figma yang disengaja
+## 7. Lapisan SEO, branding & performa
+
+Semua di bagian ini **tidak mengubah satu piksel pun** pada tampilan. Sudah
+diverifikasi dengan membandingkan render sebelum/sesudah ketiga halaman.
+
+### Metadata per halaman — `src/components/Seo.jsx`
+
+React 19 bisa mengangkat `<title>`, `<meta>`, dan `<link>` ke `<head>` sendiri,
+jadi tidak perlu react-helmet. Tambahkan `<Seo … />` di awal komponen halaman:
+
+```jsx
+<Seo title="…" description="…" path="/rute" />
+```
+
+Mengatur title, description, canonical, Open Graph, dan Twitter Card sekaligus.
+
+> ⚠️ **Keterbatasan penting.** Metadata ini dirender oleh JavaScript. Scraper
+> link (WhatsApp, Facebook) umumnya **tidak menjalankan JS**, jadi yang mereka
+> baca adalah metadata statis di `index.html`. Karena itu `index.html` berisi
+> salinan metadata halaman Home sebagai cadangan — kalau judul/deskripsi Home
+> diubah, **ubah di dua tempat**. Konsekuensinya ada dua `<title>` di DOM;
+> milik React berada lebih dulu sehingga itulah yang dipakai browser.
+>
+> Kalau SEO/preview jadi prioritas, solusi sebenarnya adalah prerender
+> (SSG) per rute. Belum dikerjakan karena berisiko terhadap tampilan.
+
+### Aset
+
+| File | Catatan |
+|---|---|
+| `public/og-image.jpg` | 1200×630, dibuat dari `hero-bg.jpg` + `brand/logo.png`. Regenerasi manual lewat PIL kalau branding berubah |
+| `public/site.webmanifest` | nama, warna tema `#036b46`, ikon |
+| `public/robots.txt` | mengizinkan semua + menunjuk sitemap |
+| `public/sitemap.xml` | **3 rute di-hardcode** — tambahkan entri kalau ada halaman baru |
+| JSON-LD `Organization` | di `index.html`. Sengaja tidak memuat harga/kontak karena nomor WA masih placeholder |
+
+### Performa gambar
+
+Foto besar di bawah lipatan memakai `loading="lazy" decoding="async"`.
+Gambar hero (Home dan `PageHero`) memakai `fetchPriority="high"` karena justru
+harus dimuat paling awal.
+
+Saat menambah gambar baru: **di bawah lipatan → lazy**, **di dalam hero →
+jangan lazy**.
+
+### Aksesibilitas & rute
+
+- **Skip link** di `Layout.jsx` — tersembunyi (`sr-only`) sampai di-Tab,
+  melompat ke `<main id="konten">`. Tidak terlihat pada tampilan normal.
+- **Rute tak dikenal** diarahkan ke Home (`<Route path="*">` di `App.jsx`).
+  Sebelumnya URL salah ketik menghasilkan halaman kosong.
+- `NavLink` otomatis memberi `aria-current="page"` pada menu aktif.
+
+## 8. Penyimpangan dari Figma yang disengaja
 
 Dicatat agar tidak dikira bug:
 
@@ -279,7 +332,7 @@ Dicatat agar tidak dikira bug:
 
 ---
 
-## 8. Yang belum selesai
+## 9. Yang belum selesai
 
 - **Placeholder abu-abu** pada kartu fitur (Home & Fitur) dan **4 dari 5 foto
   tim** masih kotak-kotak transparan — memang begitu di Figma, gambar asli
@@ -288,11 +341,11 @@ Dicatat agar tidak dikira bug:
   (`+62 8xx xxxx xxxx`, "Email perusahaan").
 - Tombol "Coba Gratis" di navbar mengarah ke `/fitur-harga`; semua CTA WhatsApp
   mengarah ke `https://wa.me/` tanpa nomor.
-- Belum ada meta description / Open Graph / sitemap.
+- Metadata hanya dirender klien (lihat bagian 7) — prerender belum ada.
 
 ---
 
-## 9. Deploy
+## 10. Deploy
 
 `vercel.json` berisi satu aturan SPA fallback:
 
@@ -314,7 +367,7 @@ curl -s https://padi-nadi.vercel.app/ | grep -o 'index-[A-Za-z0-9_-]*\.js' | hea
 
 ---
 
-## 10. Cara verifikasi perubahan
+## 11. Cara verifikasi perubahan
 
 Tiga pelajaran dari milestone ini:
 
@@ -353,7 +406,7 @@ animasinya terus berjalan — abaikan baris ~834–855 di halaman Home.
 
 ---
 
-## 11. Riwayat commit milestone
+## 12. Riwayat commit milestone
 
 ```
 88f522a  Reveal section subtitles on the Fitur and Tentang pages

@@ -39,8 +39,16 @@ function Layout() {
 
   return (
     <>
+      {/* Keyboard users would otherwise tab the whole navbar on every page.
+          Visually hidden until focused, so the layout is untouched. */}
+      <a
+        href="#konten"
+        className="sr-only focus:not-sr-only focus:absolute focus:top-20 focus:left-20 focus:z-[100] focus:rounded-full focus:bg-brand focus:px-26 focus:py-14 focus:text-button focus:font-medium focus:text-white"
+      >
+        Lewati ke konten
+      </a>
       <Navbar />
-      <main>
+      <main id="konten" tabIndex={-1}>
         <Outlet />
       </main>
       <Footer />

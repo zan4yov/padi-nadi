@@ -1,3 +1,4 @@
+import Seo from '../components/Seo'
 import Hero from '../sections/home/Hero'
 import Marquee from '../sections/home/Marquee'
 import PlatformIntro from '../sections/home/PlatformIntro'
@@ -13,6 +14,11 @@ import CtaBand from '../sections/home/CtaBand'
 function Home() {
   return (
     <>
+      <Seo
+        title="Padi Nadi — Mini-ERP untuk Penggilingan Padi"
+        description="Kelola penggilingan padi dalam satu aplikasi. Pencatatan harian, stok gabah, laporan keuangan otomatis, dan analisis AI untuk UMKM penggilingan padi Indonesia."
+        path="/"
+      />
       <Hero />
       <Marquee />
       <PlatformIntro />

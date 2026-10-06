@@ -45,6 +45,8 @@ function PlatformIntro() {
           </article>
           <img
             src={padiPanen}
+            loading="lazy"
+            decoding="async"
             alt="Hamparan padi siap panen"
             className="aspect-[583.68/437.76] w-full rounded-card object-cover"
           />

@@ -20,7 +20,13 @@ function Logo() {
       aria-label="Padi Nadi — beranda"
       className="block w-140 shrink-0 rounded-tile outline-offset-4 focus-visible:outline-2 focus-visible:outline-brand"
     >
-      <img src={logo} alt="Padi Nadi" width="818" height="359" className="block w-full" />
+      <img
+        src={logo}
+        alt="Padi Nadi"
+        width="818"
+        height="359"
+        className="block w-full"
+      />
     </Link>
   )
 }

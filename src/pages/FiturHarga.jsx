@@ -1,3 +1,4 @@
+import Seo from '../components/Seo'
 import PageHero from '../components/PageHero'
 import FaqList from '../components/FaqList'
 import FeatureRows from '../sections/fitur/FeatureRows'
@@ -29,6 +30,11 @@ const faqs = [
 function FiturHarga() {
   return (
     <>
+      <Seo
+        title="Fitur & Harga — Padi Nadi"
+        description="Enam modul Padi Nadi: dasbor, pencatatan & stok gabah, laporan keuangan, riwayat analisis, analis AI, komunitas & peta. Mulai gratis 1 bulan, paket mulai Rp39.000/bulan."
+        path="/fitur-harga"
+      />
       <PageHero
         image={heroImage}
         lead="Fitur Lengkap,"
