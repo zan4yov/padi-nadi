@@ -16,7 +16,7 @@ function TentangKontak() {
         highlight="Padi Nadi"
         body="Kami membangun Mini-ERP khusus untuk membantu penggilingan padi Indonesia bekerja lebih efisien dan bertumbuh berkelanjutan."
         cta="Hubungi Kami"
-        to="/tentang-kontak"
+        href="#kontak"
       />
       <Mission />
       <Roadmap />

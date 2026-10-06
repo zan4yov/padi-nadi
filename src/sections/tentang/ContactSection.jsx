@@ -14,7 +14,10 @@ const channels = [
 // Figma node 76:4640 — 616x98 contact cards above a 1248x138.4 dark band.
 function ContactSection() {
   return (
-    <section className="bg-cream px-20 py-80 lg:py-130 xl:px-0">
+    <section
+      id="kontak"
+      className="scroll-mt-100 bg-cream px-20 py-80 lg:py-130 xl:px-0"
+    >
       <div className="mx-auto w-full max-w-page">
         <h2
           data-reveal
