@@ -1,16 +1,53 @@
-# React + Vite
+# Padi Nadi — Company Profile
 
-This template provides a minimal setup to get React working in Vite with HMR and some Oxlint rules.
+Website profil perusahaan Padi Nadi, Mini-ERP untuk UMKM penggilingan padi.
 
-Currently, two official plugins are available:
+- **Live:** https://padi-nadi.vercel.app
+- **Stack:** React 19 · Vite · Tailwind CSS v4 · React Router
+- **Desain:** Figma `Padi Nadi (Copy)`, halaman `03 — UI Design (Pages)`
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Oxc](https://oxc.rs)
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/)
+## Menjalankan
 
-## React Compiler
+```bash
+npm install
+npm run dev       # http://localhost:5173
+npm run build     # build produksi ke dist/
+npm run preview   # jalankan hasil build
+npm run lint      # oxlint
+```
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+Formatting memakai gaya tanpa titik koma dan kutip tunggal:
 
-## Expanding the Oxlint configuration
+```bash
+npx prettier --no-semi --single-quote --write "src/**/*.{js,jsx,css}"
+```
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and Oxlint's TypeScript related rules in your project.
+## Halaman
+
+| Rute | Isi |
+|---|---|
+| `/` | Home — hero, marquee, fitur, roadmap 4 langkah, FAQ, CTA |
+| `/fitur-harga` | 6 fitur, 6 paket harga (anchor `#harga`), FAQ |
+| `/tentang-kontak` | Misi, roadmap, tim, hasil survei, kontak (anchor `#kontak`) |
+
+## Sebelum mengubah apa pun
+
+Baca **[`docs/HANDOFF.md`](docs/HANDOFF.md)** lebih dulu. Isinya hal-hal yang
+tidak terlihat dari kode: satuan spacing 0.8px, cara membaca spesifikasi eksak
+dari ekspor Figma di `UI design/`, penyimpangan yang disengaja dari desain, dan
+beberapa jebakan yang sudah pernah memakan waktu.
+
+## Struktur singkat
+
+```
+src/
+├── index.css        # semua design token (@theme) + CSS global
+├── components/      # Layout, Navbar, Footer, PillButton, PageHero, FaqList
+├── hooks/           # useScrollReveal
+├── pages/           # Home, FiturHarga, TentangKontak
+├── sections/        # home/ fitur/ tentang/
+└── assets/
+UI design/           # ekspor SVG Figma = sumber spesifikasi eksak
+tools/figma/         # skrip pembaca spesifikasi dari SVG tersebut
+vercel.json          # SPA fallback — jangan dihapus
+```
