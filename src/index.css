@@ -181,7 +181,15 @@
   --blur-glass: 6.4px;
 
   /* Motion */
-  --animate-marquee: marquee 40s linear infinite;
+  --animate-page-in: page-in 220ms ease-out;
+  @keyframes page-in {
+    from {
+      opacity: 0;
+    }
+  }
+
+  /* 120s over a 6-copy track = the same 39.6 px/s as the original 40s/2. */
+  --animate-marquee: marquee 120s linear infinite;
   @keyframes marquee {
     to {
       transform: translateX(-50%);
@@ -251,5 +259,24 @@
     opacity: 1;
     transform: none;
     transition: none;
+  }
+}
+
+/* Image fade-in — class is added by useImageFadeIn only while a photo is
+   still decoding, and always removed afterwards (see the hook's timeout). */
+main img {
+  transition: opacity 400ms ease-out;
+}
+
+main img.img-pending {
+  opacity: 0;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  main img {
+    transition: none;
+  }
+  main img.img-pending {
+    opacity: 1;
   }
 }

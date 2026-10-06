@@ -191,7 +191,7 @@ Rute: `/` → Home, `/fitur-harga`, `/tentang-kontak`.
 
 ---
 
-## 5. Scroll reveal (efek muncul saat scroll)
+## 5. Motion (scroll reveal & efek lain)
 
 Tiga bagian:
 
@@ -234,6 +234,32 @@ Home 20 blok · Fitur & Harga 14 · Tentang & Kontak 16.
 > observer — jangan tambahkan apa pun di situ.
 
 ---
+
+### Efek lain
+
+| Efek | Letak | Catatan |
+|---|---|---|
+| Marquee | `Marquee.jsx` + `--animate-marquee` | lihat peringatan di bawah |
+| Accordion FAQ | `FaqList.jsx` | `grid-template-rows` 0fr→1fr; tinggi tertutup tepat 0 |
+| Cross-fade antar halaman | `Layout.jsx` | `<div key={pathname} className="animate-page-in">` |
+| Fade-in gambar | `hooks/useImageFadeIn.js` | hanya untuk gambar yang belum selesai dimuat |
+
+> ⚠️ **Marquee — dua aturan yang tidak boleh dilanggar.**
+> Animasinya menggeser track sejauh **-50%**, jadi:
+> 1. **Jumlah salinan harus genap.** Kalau ganjil, geseran tidak jatuh pada
+>    kelipatan utuh satu set dan sambungannya akan terlihat melompat.
+> 2. **Durasi harus ikut diubah kalau jumlah salinan berubah**, kalau tidak
+>    kecepatannya berubah. Patokan: 20 detik per salinan (6 salinan = 120s)
+>    menghasilkan ~39.6 px/detik.
+>
+> Dulu hanya 2 salinan (satu set 1585px) sehingga muncul **ruang kosong** tiap
+> putaran begitu layar lebih lebar dari 1585px — di monitor 1920px celahnya
+> 309px. Sekarang 6 salinan (setengah track ~4756px), aman sampai layar 4756px.
+
+> Fade-in gambar sengaja memasang class `img-pending` **hanya** pada gambar
+> yang `complete === false`, dan ada timeout 4 detik yang melepas class itu
+> apa pun yang terjadi. Tanpa pengaman ini, satu event `load` yang tidak
+> pernah menyala akan membuat gambar hilang permanen.
 
 ## 6. Navigasi anchor
 

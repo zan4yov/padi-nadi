@@ -36,7 +36,10 @@ function Group({ hidden = false }) {
   )
 }
 
-// Figma node 79:6197 — the list is duplicated so the loop is seamless.
+// Figma node 79:6197 — the list is repeated so the loop is seamless.
+// Six copies animated by -50%: the shift must be a whole number of copies or
+// the loop seams, so the count stays even. One half is ~4756px, which clears
+// any real viewport. Two copies left a blank stretch above 1585px.
 function Marquee() {
   return (
     <section
@@ -45,6 +48,10 @@ function Marquee() {
     >
       <div className="flex w-max animate-marquee">
         <Group />
+        <Group hidden />
+        <Group hidden />
+        <Group hidden />
+        <Group hidden />
         <Group hidden />
       </div>
     </section>

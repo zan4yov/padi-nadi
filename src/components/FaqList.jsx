@@ -8,12 +8,14 @@ function FaqList({ items, className = '' }) {
     <div data-reveal-children className={className}>
       {items.map((item, i) => {
         const isOpen = open === i
+        const panelId = `faq-panel-${i}`
         return (
           <div key={item.q} className="border-b-2 border-line first:border-t-2">
             <h3>
               <button
                 type="button"
                 aria-expanded={isOpen}
+                aria-controls={panelId}
                 onClick={() => setOpen(isOpen ? -1 : i)}
                 className="flex w-full items-center justify-between gap-20 py-30 text-left outline-offset-2 focus-visible:outline-2 focus-visible:outline-brand"
               >
@@ -45,7 +47,24 @@ function FaqList({ items, className = '' }) {
                 </span>
               </button>
             </h3>
-            {isOpen && <p className="pb-30 text-prose text-muted">{item.a}</p>}
+            {/*
+              The answer used to be mounted only when open, so the panel
+              snapped. It now always renders and the row collapses via
+              grid-template-rows 0fr -> 1fr, which animates to the content's
+              real height without measuring it. Collapsed height is still
+              exactly 0, so the closed state is unchanged.
+            */}
+            <div
+              id={panelId}
+              inert={!isOpen}
+              className={`grid transition-[grid-template-rows] duration-200 ease-out motion-reduce:transition-none ${
+                isOpen ? 'grid-rows-[1fr]' : 'grid-rows-[0fr]'
+              }`}
+            >
+              <div className="overflow-hidden">
+                <p className="pb-30 text-prose text-muted">{item.a}</p>
+              </div>
+            </div>
           </div>
         )
       })}

@@ -1,6 +1,7 @@
 import { useEffect, useRef } from 'react'
 import { Outlet, useLocation } from 'react-router-dom'
 import useScrollReveal from '../hooks/useScrollReveal'
+import useImageFadeIn from '../hooks/useImageFadeIn'
 import Navbar from './Navbar'
 import Footer from './Footer'
 
@@ -8,6 +9,7 @@ function Layout() {
   const { pathname, hash } = useLocation()
   const firstLoad = useRef(true)
   useScrollReveal()
+  useImageFadeIn()
 
   // A client-side route change keeps the old scroll offset otherwise, which
   // would drop the visitor into the middle of the next page.
@@ -49,7 +51,11 @@ function Layout() {
       </a>
       <Navbar />
       <main id="konten" tabIndex={-1}>
-        <Outlet />
+        {/* Keyed on the route so each page remounts and cross-fades in,
+            instead of the content swapping abruptly after the scroll-to-top. */}
+        <div key={pathname} className="animate-page-in">
+          <Outlet />
+        </div>
       </main>
       <Footer />
     </>
