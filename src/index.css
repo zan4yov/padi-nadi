@@ -1,0 +1,249 @@
+@import 'tailwindcss';
+
+/*
+ * Design tokens — extracted from Figma "Padi Nadi" › 03 — UI Design (Pages).
+ *
+ * The Figma frames are authored at 80% scale, so every spacing value in the
+ * file is a multiple of 0.8px (20.8, 33.6, 104…). Setting the spacing unit to
+ * 0.8px lets each Figma value map to a whole-number utility:
+ *   p-26 = 20.8px, gap-42 = 33.6px, py-130 = 104px.
+ */
+@theme {
+  --spacing: 0.8px;
+
+  /* Fonts */
+  --font-sans: 'Plus Jakarta Sans', ui-sans-serif, system-ui, sans-serif;
+
+  /* Colors */
+  --color-brand: #036b46;
+  --color-brand-deep: rgb(2 45 29);
+  --color-gold: #f4c542;
+  --color-ink: #1a1a1a;
+  --color-muted: #6b6b6b;
+  --color-line: #d9d9d9;
+  --color-cream: #faf8f3;
+  --color-mint: #e6f2ed;
+  --color-ash: #f0f0f0;
+  --color-grey: #8a8a8a;
+  --color-ink-soft: #4a4a4a;
+  --color-dim-soft: #cfcfcf;
+  --color-placeholder: #ececec;
+  --color-dim: #b0b0b0;
+  --color-line-dark: #3a3a3a;
+
+  /* Type scale (size / line-height / tracking from Figma) */
+  --text-display: 59.57px;
+  --text-display--line-height: 60.761px;
+  --text-display--letter-spacing: -1.1914px;
+  --text-h2: 44.8px;
+  --text-h2--line-height: 47.488px;
+  --text-h2--letter-spacing: -0.896px;
+  --text-h1: 53.6px;
+  --text-h1--line-height: 55.74px;
+  --text-h1--letter-spacing: -1.072px;
+  --text-h4: 48px;
+  --text-h4--line-height: 49.92px;
+  --text-h4--letter-spacing: -0.96px;
+  --text-hero2: 44.03px;
+  --text-hero2--line-height: 44.91px;
+  --text-hero2--letter-spacing: -0.8806px;
+  --text-h3: 41.44px;
+  --text-h3--line-height: 43.93px;
+  --text-h3--letter-spacing: -0.8288px;
+  --text-metric: 41.6px;
+  --text-metric--line-height: 44.1px;
+  --text-metric--letter-spacing: -1.248px;
+  --text-prose: 16.32px;
+  --text-prose--line-height: 27.74px;
+  --text-note: 15.2px;
+  --text-note--line-height: 24.32px;
+  --text-feature: 14.88px;
+  --text-feature--line-height: 23.81px;
+  --text-feature-title: 43.2px;
+  --text-feature-title--line-height: 47.52px;
+  --text-feature-title--letter-spacing: -0.864px;
+  --text-feature-sub: 20px;
+  --text-feature-sub--line-height: 26px;
+  --text-feature-sub--letter-spacing: -0.4px;
+  --text-price: 40px;
+  --text-price--line-height: 44px;
+  --text-price--letter-spacing: -1.2px;
+  --text-plan: 22.4px;
+  --text-plan--line-height: 28px;
+  --text-plan--letter-spacing: -0.448px;
+  --text-period: 11.52px;
+  --text-period--line-height: 16px;
+  --text-year: 25.6px;
+  --text-year--line-height: 32px;
+  --text-pitch: 25.6px;
+  --text-pitch--line-height: 32px;
+  --text-pitch--letter-spacing: -0.512px;
+  --text-quote-lg: 24px;
+  --text-quote-lg--line-height: 36px;
+  --text-quote-lg--letter-spacing: -0.24px;
+  --text-member: 18px;
+  --text-member--line-height: 24px;
+  --text-member--letter-spacing: -0.4px;
+  --text-role: 13.12px;
+  --text-role--line-height: 19.68px;
+  --text-mission: 17.6px;
+  --text-mission--line-height: 30.8px;
+  --text-badge-xs: 9.92px;
+  --text-badge-xs--line-height: 14px;
+  --text-badge-xs--letter-spacing: 0.5952px;
+  --text-quote: 19.2px;
+  --text-quote--line-height: 28.8px;
+  --text-quote--letter-spacing: -0.192px;
+  --text-card-title: 19.2px;
+  --text-card-title--line-height: 24px;
+  --text-step: 18.4px;
+  --text-step--line-height: 23px;
+  --text-step--letter-spacing: -0.368px;
+  --text-faq: 17.92px;
+  --text-faq--line-height: 25.09px;
+  --text-row-value: 17.6px;
+  --text-row-value--line-height: 24px;
+  --text-lead-sm: 16.64px;
+  --text-lead-sm--line-height: 26.11px;
+  --text-step-body: 14.4px;
+  --text-step-body--line-height: 22.32px;
+  --text-tiny: 13.12px;
+  --text-tiny--line-height: 19.68px;
+  --text-eyebrow: 12.48px;
+  --text-eyebrow--line-height: 18px;
+  --text-eyebrow--letter-spacing: 0.4992px;
+  --text-social: 11.2px;
+  --text-social--line-height: 16px;
+  --text-marquee: 21.6px;
+  --text-marquee--line-height: 34.56px;
+  --text-stat: 22.4px;
+  --text-stat--line-height: 35.84px;
+  --text-lead: 16.96px;
+  --text-lead--line-height: 28.832px;
+  --text-body: 16.32px;
+  --text-body--line-height: 28.56px;
+  --text-item: 16.32px;
+  --text-item--line-height: 26.112px;
+  --text-button: 15.2px;
+  --text-button--line-height: 24.32px;
+  --text-nav: 14.72px;
+  --text-nav--line-height: 23.552px;
+  --text-caption: 12.8px;
+  --text-caption--line-height: 20.48px;
+  --text-caption-sm: 11.84px;
+  --text-caption-sm--line-height: 18.944px;
+  --text-micro: 10.88px;
+  --text-micro--line-height: 17.408px;
+
+  /* Responsive steps for small viewports (Figma only defines desktop) */
+  --text-display-sm: 36px;
+  --text-display-sm--line-height: 38px;
+  --text-display-sm--letter-spacing: -0.72px;
+  --text-h1-sm: 34px;
+  --text-h1-sm--line-height: 38px;
+  --text-h1-sm--letter-spacing: -0.68px;
+  --text-h4-sm: 30px;
+  --text-h4-sm--line-height: 34px;
+  --text-h4-sm--letter-spacing: -0.6px;
+  --text-hero2-sm: 32px;
+  --text-hero2-sm--line-height: 36px;
+  --text-hero2-sm--letter-spacing: -0.64px;
+  --text-feature-title-sm: 28px;
+  --text-feature-title-sm--line-height: 32px;
+  --text-feature-title-sm--letter-spacing: -0.56px;
+  --text-h3-sm: 28px;
+  --text-h3-sm--line-height: 32px;
+  --text-h3-sm--letter-spacing: -0.56px;
+  --text-metric-sm: 32px;
+  --text-metric-sm--line-height: 36px;
+  --text-metric-sm--letter-spacing: -0.96px;
+  --text-h2-sm: 32px;
+  --text-h2-sm--line-height: 36px;
+  --text-h2-sm--letter-spacing: -0.64px;
+
+  /* Fixed sizes that are not on the 0.8px grid */
+  --spacing-dot: 7px;
+  --spacing-avatar: 38.398px;
+  --spacing-check: 27.195px;
+
+  /* Radii */
+  --radius-card: 26px;
+  --radius-tile: 14px;
+
+  /* Layout */
+  --container-page: 1248px;
+  --container-hero-copy: 992px;
+  --container-hero-lead: 544px;
+  --container-media: 592px;
+
+  /* Effects */
+  --blur-nav: 12.8px;
+  --blur-glass: 6.4px;
+
+  /* Motion */
+  --animate-marquee: marquee 40s linear infinite;
+  @keyframes marquee {
+    to {
+      transform: translateX(-50%);
+    }
+  }
+}
+
+@layer base {
+  html {
+    @apply bg-white font-sans text-ink antialiased;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .animate-marquee {
+    animation: none;
+  }
+}
+
+/*
+ * Scroll reveal — effect only.
+ * The hidden state is scoped to .reveal-ready (added by useScrollReveal), so
+ * the design renders exactly as laid out when JS is off or motion is reduced.
+ * The settled state is opacity 1 / transform none, i.e. the original design.
+ */
+.reveal-ready [data-reveal],
+.reveal-ready [data-reveal-children] > * {
+  opacity: 0;
+  transform: translate3d(0, 18px, 0);
+  transition:
+    opacity 700ms cubic-bezier(0.22, 0.61, 0.36, 1),
+    transform 700ms cubic-bezier(0.22, 0.61, 0.36, 1);
+}
+
+.reveal-ready [data-reveal].is-revealed,
+.reveal-ready [data-reveal-children].is-revealed > * {
+  opacity: 1;
+  transform: none;
+}
+
+/* Children of a marked group trail each other slightly. */
+.reveal-ready [data-reveal-children].is-revealed > *:nth-child(2) {
+  transition-delay: 70ms;
+}
+.reveal-ready [data-reveal-children].is-revealed > *:nth-child(3) {
+  transition-delay: 140ms;
+}
+.reveal-ready [data-reveal-children].is-revealed > *:nth-child(4) {
+  transition-delay: 210ms;
+}
+.reveal-ready [data-reveal-children].is-revealed > *:nth-child(5) {
+  transition-delay: 280ms;
+}
+.reveal-ready [data-reveal-children].is-revealed > *:nth-child(n + 6) {
+  transition-delay: 350ms;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .reveal-ready [data-reveal],
+  .reveal-ready [data-reveal-children] > * {
+    opacity: 1;
+    transform: none;
+    transition: none;
+  }
+}
